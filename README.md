@@ -3,6 +3,14 @@ mastering-fee-calculator
 
 Mastering fee calculator
 
+Pour lancer les tests
+---------------------
+
+Se positionner dans le répertoire `test` et faire :
+
+`mocha mastering_fee_calculator_test.js`
+
+
 Prérequis
 ---------
 
