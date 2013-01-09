@@ -17,8 +17,12 @@ describe('Calculator', function(){
       /* EP price : 180/6 * 7 */
       assert.equal(210, calculator.compute(7));
     });
+    it('EP price: should return 330 when there is 11 song', function(){
+      /* EP price : 180/6 * 11 = 330 */
+      assert.equal(330, calculator.compute(11));
+    });
     it('EP price: should return 360 when there is 12 song', function(){
-      /* EP price : 180/6 * 12 */
+      /* EP price : 180/6 * 12 = 360 */
       assert.equal(360, calculator.compute(12));
     });
     it('LP price: should return 335 when there is 13 song', function(){
