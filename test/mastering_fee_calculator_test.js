@@ -26,12 +26,12 @@ describe('Calculator', function(){
       assert.equal(360, calculator.compute(12));
     });
     it('LP price: should return 335 when there is 13 song', function(){
-      /* 1 LP is 13 songs and cost 338 */
-      assert.equal(338, calculator.compute(13));
+      /* 1 LP is 13 songs and cost 335 */
+      assert.equal(335, calculator.compute(13));
     });
-     it('LP price: should return 361 when there is 14 song', function(){
-      /* LP price: 338/13 * 14 = 364 */
-      assert.equal(364, calculator.compute(14));
+     it('LP price: should return 360.77 when there is 14 song', function(){
+      /* LP price: 335/13 + 335 = 360.77 */
+      assert.equal(360.77, calculator.compute(14));
     });
 
 });
