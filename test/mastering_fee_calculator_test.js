@@ -38,13 +38,12 @@ describe('Calculator', function(){
       var inputs = new function () { this.songCount = 20};
       assert.equal(553.85, calculator.compute(inputs));
     });
-    /*it('with stem mastering', function () {
+    it('with stem mastering', function () {
       var inputs = new function () {
         this.stem = true;
         this.songCount = 1;
       };
-      console.log(inputs);
       assert.equal(12 + 35, calculator.compute(inputs));
-    });*/
+    });
 
 });
