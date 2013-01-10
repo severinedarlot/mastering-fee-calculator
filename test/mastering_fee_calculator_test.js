@@ -30,7 +30,7 @@ describe('Calculator', function(){
       var inputs = new function () { this.songCount = 13};
       assert.equal(360, calculator.compute(inputs));
     });
-    it('LP price: should return 360/13 + 360 = 360.77 when there is 14 songs', function(){
+    it('LP price: should return 360/13 + 360 = 387.70 when there is 14 songs', function(){
       var inputs = new function () { this.songCount = 14};
       assert.equal(387.70, calculator.compute(inputs));
     });
@@ -73,4 +73,12 @@ describe('Calculator', function(){
         };
         assert.equal(12*7 + 210, calculator.compute(inputs));
     });
+    it('with extra loud with 14 songs', function () {
+        var inputs = new function () {
+            this.extraLoud = true;
+            this.songCount = 14;
+        };
+        assert.equal(12*14 + 387.70, calculator.compute(inputs));
+    });
+
 });
