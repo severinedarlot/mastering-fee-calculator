@@ -80,5 +80,12 @@ describe('Calculator', function(){
         };
         assert.equal(12*14 + 387.70, calculator.compute(inputs));
     });
+    it('with DDP encodage', function () {
+      var inputs = new function () {
+        this.ddpEncodage = true;
+        this.songCount = 1;
+      };
+      assert.equal(30 + 35, calculator.compute(inputs));
+    });
 
 });
