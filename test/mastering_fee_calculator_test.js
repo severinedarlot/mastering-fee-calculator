@@ -83,9 +83,18 @@ describe('Calculator', function(){
     it('with DDP encodage', function () {
       var inputs = new function () {
         this.ddpEncodage = true;
+        this.pressDelivery = false;
         this.songCount = 1;
       };
       assert.equal(30 + 35, calculator.compute(inputs));
+    });
+    it('with DDP encodage and press delivery', function () {
+        var inputs = new function () {
+            this.ddpEncodage = true;
+            this.pressDelivery = true;
+            this.songCount = 1;
+        };
+        assert.equal(30 + 40 + 35, calculator.compute(inputs));
     });
 
 });
