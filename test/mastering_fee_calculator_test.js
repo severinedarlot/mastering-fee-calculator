@@ -45,5 +45,19 @@ describe('Calculator', function(){
       };
       assert.equal(12 + 35, calculator.compute(inputs));
     });
+    it('with stem mastering with 2 songs', function () {
+        var inputs = new function () {
+            this.stem = true;
+            this.songCount = 2;
+        };
+        assert.equal(12*2 + 35*2, calculator.compute(inputs));
+    });
+    it('with stem mastering with 7 songs', function () {
+        var inputs = new function () {
+            this.stem = true;
+            this.songCount = 7;
+        };
+        assert.equal(12*7 + 210, calculator.compute(inputs));
+    });
 
 });
