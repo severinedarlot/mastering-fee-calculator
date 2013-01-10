@@ -96,5 +96,12 @@ describe('Calculator', function(){
         };
         assert.equal(30 + 40 + 35, calculator.compute(inputs));
     });
+    it('with postal sending', function () {
+        var inputs = new function () {
+            this.postalSending = true;
+            this.songCount = 1;
+        };
+        assert.equal(15 + 35, calculator.compute(inputs));
+    });
 
 });
