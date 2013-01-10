@@ -59,5 +59,18 @@ describe('Calculator', function(){
         };
         assert.equal(12*7 + 210, calculator.compute(inputs));
     });
-
+    it('with extra loud with 1 song', function () {
+        var inputs = new function () {
+            this.extraLoud = true;
+            this.songCount = 1;
+        };
+        assert.equal(12 + 35, calculator.compute(inputs));
+    });
+    it('with extra loud with 7 songs', function () {
+        var inputs = new function () {
+            this.extraLoud = true;
+            this.songCount = 7;
+        };
+        assert.equal(12*7 + 210, calculator.compute(inputs));
+    });
 });
