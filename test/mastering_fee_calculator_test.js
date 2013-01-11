@@ -80,28 +80,41 @@ describe('Calculator', function(){
         };
         assert.equal(12*14 + 387.70, calculator.compute(inputs));
     });
-    it('with DDP encodage', function () {
+  it('with DDP encodage', function () {
+    var inputs = new function () {
+      this.ddpEncodage = true;
+      this.pressDelivery = false;
+      this.songCount = 1;
+    };
+    assert.equal(30 + 35, calculator.compute(inputs));
+  });
+  it('with DDP encodage and press delivery', function () {
       var inputs = new function () {
-        this.ddpEncodage = true;
-        this.pressDelivery = false;
-        this.songCount = 1;
+          this.ddpEncodage = true;
+          this.pressDelivery = true;
+          this.songCount = 1;
       };
-      assert.equal(30 + 35, calculator.compute(inputs));
-    });
-    it('with DDP encodage and press delivery', function () {
-        var inputs = new function () {
-            this.ddpEncodage = true;
-            this.pressDelivery = true;
-            this.songCount = 1;
-        };
-        assert.equal(30 + 40 + 35, calculator.compute(inputs));
-    });
-    it('with postal sending', function () {
-        var inputs = new function () {
-            this.postalSending = true;
-            this.songCount = 1;
-        };
-        assert.equal(15 + 35, calculator.compute(inputs));
-    });
-
+      assert.equal(30 + 40 + 35, calculator.compute(inputs));
+  });
+  it('with postal sending', function () {
+      var inputs = new function () {
+          this.postalSending = true;
+          this.songCount = 1;
+      };
+      assert.equal(15 + 35, calculator.compute(inputs));
+  });
+  it('with pbo instru', function () {
+    var inputs = new function () {
+      this.pboInstru = 1;
+      this.songCount = 1;
+    };
+    assert.equal(35 + 12, calculator.compute(inputs));
+  });
+  it('with pbo instru and 7 songs', function () {
+    var inputs = new function () {
+      this.pboInstru = 7;
+      this.songCount = 7;
+    };
+    assert.equal(30 * 7 + 12 * 7, calculator.compute(inputs));
+  });
 });
