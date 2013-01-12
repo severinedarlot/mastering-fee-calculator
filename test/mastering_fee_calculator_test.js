@@ -123,6 +123,18 @@ describe('Calculator', function(){
     };
     assert.equal(52.5, calculator.compute(inputs));
   });
+  it('with 1 song between 10 and 14 minutes give 35 + 35*2/2 = 70', function () {
+    var inputs = new function () {
+      this.songCount = {2: 1};
+    };
+    assert.equal(70, calculator.compute(inputs));
+  });
+  it('with 1 song between 15 and 19 minutes give 35 + 35*3/2 = 87,50', function () {
+    var inputs = new function () {
+      this.songCount = {3: 1};
+    };
+    assert.equal(87.50, calculator.compute(inputs));
+  });
   it('with 1 basic song and 1 song between 5 and 9 minutes give 35 * 2 + 35/2 = 87,5', function () {
     var inputs = new function () {
       this.songCount = {0: 1, 1: 1};
