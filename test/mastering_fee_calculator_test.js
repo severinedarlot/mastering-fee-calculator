@@ -141,4 +141,10 @@ describe('Calculator', function(){
     };
     assert.equal(87.5, calculator.compute(inputs));
   });
+  it('with 4 basic songs and 2 songs between 5 and 9 minutes give 180 + 30 / 2 * 2 = 210', function () {
+    var inputs = new function () {
+      this.songCount = {0: 4, 1: 2};
+    };
+    assert.equal(210, calculator.compute(inputs));
+  });
 });
