@@ -80,17 +80,17 @@ describe('Calculator', function(){
         };
         assert.equal(12*14 + 387.70, calculator.compute(inputs));
     });
-  it('with DDP encodage', function () {
+  it('with DDP coding', function () {
     var inputs = new function () {
-      this.ddpEncodage = true;
+      this.ddpCoding = true;
       this.pressDelivery = false;
       this.songCount = {0: 1};
     };
     assert.equal(30 + 35, calculator.compute(inputs));
   });
-  it('with DDP encodage and press delivery', function () {
+  it('with DDP coding and press delivery', function () {
       var inputs = new function () {
-          this.ddpEncodage = true;
+          this.ddpCoding = true;
           this.pressDelivery = true;
           this.songCount = {0: 1};
       };
