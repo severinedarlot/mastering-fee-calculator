@@ -123,4 +123,10 @@ describe('Calculator', function(){
     };
     assert.equal(52.5, calculator.compute(inputs));
   });
+  it('with 1 basic song and 1 song between 5 and 9 minutes give 35 * 2 + 35/2 = 87,5', function () {
+    var inputs = new function () {
+      this.songCount = {0: 1, 1: 1};
+    };
+    assert.equal(87.5, calculator.compute(inputs));
+  });
 });
