@@ -1,6 +1,16 @@
 var assert = require("assert"),
   calculator = require("../lib/mastering_fee_calculator");
 
+describe('PLOUF Give it some context', function() {
+  describe('maybe a bit more context here', function() {
+
+    it('should run here few assertions', function() {
+
+    });
+
+  });
+});
+
 describe('Calculator', function(){
     it('should return 35 when there is 1 song', function(){
       var inputs = new function () { this.songCount = {0: 1}};
