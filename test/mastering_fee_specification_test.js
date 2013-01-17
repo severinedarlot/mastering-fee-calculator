@@ -1,6 +1,3 @@
-var assert = require("assert"),
-  calculator = require("../lib/mastering_fee_calculator");
-
 describe('Calculator', function(){
   it('Big simulation 360 + 360/13/2 + 12*13 + 12*13 + 30 + 40 + 12*5 + 15', function(){
     var inputs = new function () {
@@ -12,9 +9,9 @@ describe('Calculator', function(){
       this.pboInstru = 5;
       this.postalSending = true;
     };
-    var result = calculator.compute(inputs);
+    var result = compute(inputs);
     console.log(inputs);
     console.log('Result = ', result);
-    assert.equal(830.85, calculator.compute(inputs));
+    assert.equal(830.85, result);
   });
 });

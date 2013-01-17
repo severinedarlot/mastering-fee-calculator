@@ -6,10 +6,8 @@ Mastering fee calculator
 Pour lancer les tests
 ---------------------
 
-Se positionner dans le répertoire `test` et faire :
-
-`mocha mastering_fee_calculator_test.js`
-
+Soit ouvrir le fichier `test/index.html`dans un navigateur, soit lancer la commande `yeoman test`.
+Dans le navigateur, on peut voir les logs dans son console. En ligne de commande, on n'arrive pas à voir les logs.
 
 Prérequis
 ---------
@@ -83,7 +81,6 @@ Besoin pour les macs.
 
 ###Yeoman
 
-Et voilà, finalement on peut installer Yeoman. Par contre, ça peut prendre du temps. On peut en profiter pour faire une pause ou lire de la documentation sur Yeoman :
-
+Et voilà, finalement on peut installer Yeoman.
 `sudo npm install -g yeoman`
 

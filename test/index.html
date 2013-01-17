@@ -13,36 +13,15 @@
   <!-- assertion framework -->
   
   <script src="lib/chai.js"></script>
-    
-      
-  <script>expect = chai.expect</script>
-      
-    
-  
 
-  <!-- -->
-
+  <script>assert = chai.assert</script>
+      
   <!-- include source files here... -->
   <script src="../lib/mastering_fee_calculator.js"></script>
-  <script src="mastering_fee_calculator_test.js"></script>
-  <script src="mastering_fee_specification_test.js"></script>
-
 
   <!-- include spec files here... -->
-  <script>
-  // replace this by your own specs
-  (function() {
-    describe('Give it some context', function() {
-      describe('maybe a bit more context here', function() {
-
-        it('should run here few assertions', function() {
-
-        });
-
-      });
-    });
-  })();
-  </script>
+  <script src="mastering_fee_calculator_test.js"></script>
+  <script src="mastering_fee_specification_test.js"></script>
 
   <!-- trigger the mocha runner -->
   <script src="runner/mocha.js"></script>
