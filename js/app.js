@@ -32,7 +32,7 @@ App.ApplicationView = Ember.View.extend({
         this.postalSending = self.get('postalSending');
       };
     return compute(inputs);
-  }.property('songCountSelected', 'stem', 'extraLoud', 'ddpCoding', 'pressDelivery', 'postalSending', 'pboCountSelected'),
+  }.property('songCountSelected', 'stem', 'extraLoud', 'ddpCoding', 'pressDelivery', 'postalSending', 'pboCountSelected', 'fiveTenCountSelected', 'tenFifteenCountSelected', 'fifteenTwentyCountSelected'),
 
   songCounts: function () {
     var result = [];
