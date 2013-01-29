@@ -24,6 +24,10 @@
     <h1>{{view.title}}</h1>
     <div>Nombre de chansons : {{view Ember.Select contentBinding="view.songCounts" valueBinding="view.songCountSelected"}}</div>
     <div>Stem {{view Ember.Checkbox checkedBinding="view.stem"}}</div>
+    <div>Extra loud : {{view Ember.Checkbox checkedBinding="view.extraLoud"}}</div>
+    <div>DDP coding : {{view Ember.Checkbox checkedBinding="view.ddpCoding"}}</div>
+    <div>Press Delivery : {{view Ember.Checkbox checkedBinding="view.pressDelivery"}}</div>
+    <div>Postal Sending : {{view Ember.Checkbox checkedBinding="view.postalSending"}}</div>
     <hr>
     <div>Prix : {{view.result}}</div>
 </script>
