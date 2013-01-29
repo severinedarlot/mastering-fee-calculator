@@ -23,11 +23,13 @@
 <script type="text/x-handlebars" data-template-name="application">
     <h1>{{view.title}}</h1>
     <div>Nombre de chansons : {{view Ember.Select contentBinding="view.songCounts" valueBinding="view.songCountSelected"}}</div>
+    <div>Stem {{view Ember.Checkbox checkedBinding="view.stem"}}</div>
+    <hr>
     <div>Prix : {{view.result}}</div>
 </script>
 
 <!-- The missing protocol means that it will match the current protocol, either http or https. If running locally, we use the local jQuery. -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<!--script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script-->
 <script>window.jQuery || document.write('<script src="js/libs/jquery-1.9.0.js"><\/script>')</script>
 <script src="js/libs/handlebars-1.0.rc.1.js"></script>
 <script src="js/libs/ember-1.0.0-pre4.min.js"></script>
