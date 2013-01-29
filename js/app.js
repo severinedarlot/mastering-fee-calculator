@@ -10,6 +10,7 @@ App.ApplicationView = Ember.View.extend({
   ddpCoding : false,
   pressDelivery : false,
   postalSending : false,
+  pboCountSelected : 0,
 
   result: function () {
     var self = this,
@@ -19,11 +20,11 @@ App.ApplicationView = Ember.View.extend({
         this.extraLoud = self.get('extraLoud');
         this.ddpCoding = self.get('ddpCoding');
         this.pressDelivery = self.get('pressDelivery');
-        this.pboInstru = 5;
+        this.pboInstru = self.get('pboCountSelected');
         this.postalSending = self.get('postalSending');
       };
     return compute(inputs);
-  }.property('songCountSelected', 'stem', 'extraLoud', 'ddpCoding', 'pressDelivery', 'postalSending'),
+  }.property('songCountSelected', 'stem', 'extraLoud', 'ddpCoding', 'pressDelivery', 'postalSending', 'pboCountSelected'),
 
   songCounts: function () {
     var result = [];
