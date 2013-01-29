@@ -34,6 +34,15 @@ App.ApplicationView = Ember.View.extend({
     return result;
   }.property(),
 
+  pboCounts: function () {
+    console.log('pboCounts');
+    var result = [];
+    for(var i=1 ; i <= this.get('songCountSelected') ; i++) {
+      result.pushObject(i);
+    }
+    return result;
+  }.property('songCountSelected')
+
 
 });
 
