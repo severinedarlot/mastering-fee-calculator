@@ -11,11 +11,19 @@ App.ApplicationView = Ember.View.extend({
   pressDelivery : false,
   postalSending : false,
   pboCountSelected : 0,
+  fiveTenCountSelected : 0,
+  tenFifteenCountSelected : 0,
+  fifteenTwentyCountSelected : 0,
 
   result: function () {
     var self = this,
       inputs = new function () {
-        this.songCount = {0: self.get('songCountSelected')};
+        this.songCount = {
+          0: self.get('songCountSelected') - self.get('fiveTenCountSelected') - self.get('tenFifteenCountSelected') - self.get('fifteenTwentyCountSelected'),
+          1: self.get('fiveTenCountSelected'),
+          2: self.get('tenFifteenCountSelected'),
+          3: self.get('fifteenTwentyCountSelected')
+        };
         this.stem = self.get('stem');
         this.extraLoud = self.get('extraLoud');
         this.ddpCoding = self.get('ddpCoding');
@@ -37,7 +45,7 @@ App.ApplicationView = Ember.View.extend({
   pboCounts: function () {
     console.log('pboCounts');
     var result = [];
-    for(var i=1 ; i <= this.get('songCountSelected') ; i++) {
+    for(var i=0 ; i <= this.get('songCountSelected') ; i++) {
       result.pushObject(i);
     }
     return result;

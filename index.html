@@ -22,7 +22,15 @@
 <body>
 <script type="text/x-handlebars" data-template-name="application">
     <h1>{{view.title}}</h1>
-    <div>Nombre de chansons : {{view Ember.Select contentBinding="view.songCounts" valueBinding="view.songCountSelected"}}</div>
+    <div>Nombre total de chansons : {{view Ember.Select contentBinding="view.songCounts" valueBinding="view.songCountSelected"}}</div>
+    <div>Il a des chansons de plus de 5 minutes {{view Ember.Checkbox checkedBinding="view.moreLong"}}</div>
+    {{#if view.moreLong}}
+      <div>entre 5 et 10 minutes : {{view Ember.Select contentBinding="view.pboCounts" valueBinding="view.fiveTenCountSelected"}}</div>
+      <div>entre 10 et 15 minutes : {{view Ember.Select contentBinding="view.pboCounts" valueBinding="view.tenFifteenCountSelected"}}</div>
+      <div>entre 15 et 20 minutes : {{view Ember.Select contentBinding="view.pboCounts" valueBinding="view.fifteenTwentyCountSelected"}}</div>
+    {{/if}}
+
+
     <div>Stem {{view Ember.Checkbox checkedBinding="view.stem"}}</div>
     <div>Extra loud : {{view Ember.Checkbox checkedBinding="view.extraLoud"}}</div>
     <div>DDP coding : {{view Ember.Checkbox checkedBinding="view.ddpCoding"}}</div>
