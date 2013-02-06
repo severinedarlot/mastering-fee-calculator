@@ -35,7 +35,7 @@ Procédure d'installation de npm :
 
 `curl http://npmjs.org/install.sh | sh`
 
-Si problème de sécuriter, changer temporairement les droits du répertoire /usr/bin/node
+Si problème de sécurité, changer temporairement les droits du répertoire /usr/bin/node
 
 ###mocha
 

@@ -23,22 +23,28 @@
 <script type="text/x-handlebars" data-template-name="application">
     <h1>{{view.title}}</h1>
     <div>Nombre total de chansons : {{view Ember.Select contentBinding="view.songCounts" valueBinding="view.songCountSelected"}}</div>
-    <div>Il a des chansons de plus de 5 minutes {{view Ember.Checkbox checkedBinding="view.moreLong"}}</div>
-    {{#if view.moreLong}}
-      <div>entre 5 et 10 minutes : {{view Ember.Select contentBinding="view.pboCounts" valueBinding="view.fiveTenCountSelected"}}</div>
-      <div>entre 10 et 15 minutes : {{view Ember.Select contentBinding="view.pboCounts" valueBinding="view.tenFifteenCountSelected"}}</div>
-      <div>entre 15 et 20 minutes : {{view Ember.Select contentBinding="view.pboCounts" valueBinding="view.fifteenTwentyCountSelected"}}</div>
+    {{#if view.hasSong}}
+      {{view App.SongsView contentBinding="view.songs"}}
+      <div>Extra loud : {{view Ember.Checkbox checkedBinding="view.extraLoud"}}</div>
+      <div>DDP coding : {{view Ember.Checkbox checkedBinding="view.ddpCoding"}}</div>
+      <div>Livraison numérique à l'usine de pressage : {{view Ember.Checkbox checkedBinding="view.pressDelivery"}}</div>
+      <div>Envoi postal : {{view Ember.Checkbox checkedBinding="view.postalSending"}}</div>
+      <hr>
+      <div>Prix : {{view.result}}</div>
     {{/if}}
+</script>
 
-
-    <div>Stem {{view Ember.Checkbox checkedBinding="view.stem"}}</div>
-    <div>Extra loud : {{view Ember.Checkbox checkedBinding="view.extraLoud"}}</div>
-    <div>DDP coding : {{view Ember.Checkbox checkedBinding="view.ddpCoding"}}</div>
-    <div>Nombre de PBO / instrumental : {{view Ember.Select contentBinding="view.pboCounts" valueBinding="view.pboCountSelected"}}</div>
-    <div>Livraison numérique à l'usine de pressage : {{view Ember.Checkbox checkedBinding="view.pressDelivery"}}</div>
-    <div>Envoi postal : {{view Ember.Checkbox checkedBinding="view.postalSending"}}</div>
-    <hr>
-    <div>Prix : {{view.result}}</div>
+<script type="text/x-handlebars" data-template-name="song_line">
+    <tr>
+      <td>Song {{view.content.number}}</td>
+      <td>{{view Ember.Select
+              contentBinding="App.durations"
+              optionValuePath="content.id"
+              optionLabelPath="content.label"
+              valueBinding="view.content.length"}}</td>
+      <td>Stem {{view Ember.Checkbox checkedBinding="view.content.stem"}}</td>
+      <td>Instrumental {{view Ember.Checkbox checkedBinding="view.content.instrumental"}}</td>
+    </tr>
 </script>
 
 <!-- The missing protocol means that it will match the current protocol, either http or https. If running locally, we use the local jQuery. -->
@@ -48,5 +54,7 @@
 <script src="js/libs/ember-1.0.0-pre4.min.js"></script>
 <script src="lib/mastering_fee_calculator.js"></script>
 <script src="js/app.js"></script>
+<script src="js/song.js"></script>
+<script src="js/songs_view.js"></script>
 </body>
 </html>
