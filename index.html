@@ -22,13 +22,16 @@
 <body>
 <script type="text/x-handlebars" data-template-name="application">
     <h1>{{view.title}}</h1>
-    <div>Nombre total de chansons : {{view Ember.Select contentBinding="view.songCounts" valueBinding="view.songCountSelected"}}</div>
+    <div>Nombre total de pistes : {{view Ember.Select contentBinding="view.songCounts" valueBinding="view.songCountSelected"}}</div>
     {{#if view.hasSong}}
       {{view App.SongsView contentBinding="view.songs"}}
       <div>Extra loud : {{view Ember.Checkbox checkedBinding="view.extraLoud"}}</div>
-      <div>DDP coding : {{view Ember.Checkbox checkedBinding="view.ddpCoding"}}</div>
-      <div>Livraison numérique à l'usine de pressage : {{view Ember.Checkbox checkedBinding="view.pressDelivery"}}</div>
+      <div>Image DDP avec code ISRC (fourni sur support DVD) : {{view Ember.Checkbox checkedBinding="view.ddpCoding"}}</div>
+      {{#if view.ddpCoding}}
+        <div>Livraison numérique à l'usine de pressage : {{view Ember.Checkbox checkedBinding="view.pressDelivery"}}</div>
+      {{/if}}
       <div>Envoi postal : {{view Ember.Checkbox checkedBinding="view.postalSending"}}</div>
+
       <hr>
       <div>Prix : {{view.result}}</div>
     {{/if}}
@@ -36,7 +39,7 @@
 
 <script type="text/x-handlebars" data-template-name="song_line">
     <tr>
-      <td>Song {{view.content.number}}</td>
+      <td>Piste {{view.content.number}}</td>
       <td>{{view Ember.Select
               contentBinding="App.durations"
               optionValuePath="content.id"
