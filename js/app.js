@@ -35,11 +35,11 @@ App.ApplicationView = Ember.View.extend({
         this.extraLoud = self.get('extraLoud');
         this.ddpCoding = self.get('ddpCoding');
         this.pressDelivery = self.get('pressDelivery');
-        this.pboInstru = 0;
+        this.pboInstru = self.pboInstruCount();
         this.postalSending = self.get('postalSending');
       };
     return compute(inputs);
-  }.property('songCountSelected', 'extraLoud', 'ddpCoding', 'pressDelivery', 'postalSending'),
+  }.property('songCountSelected', 'extraLoud', 'ddpCoding', 'pressDelivery', 'postalSending', 'tracks@each.length', 'tracks.@each.stem', 'tracks.@each.instrumental'),
 
   songCounts: function () {
     var result = [];
@@ -61,10 +61,31 @@ App.ApplicationView = Ember.View.extend({
         this.get('songs').pushObject(App.Song.create({number: i+1}));
       }
     }
+    if(!this.get('songs')) return [];
     return this.get('songs').filter(function (item, index) {
       return index < this.get('songCountSelected');
     }, this);
-  }.property('songCountSelected')
+  }.property('songCountSelected'),
+
+  pboInstruCount: function () {
+    var result = 0;
+    this.get('tracks').forEach(function (item) {
+      if(item.get('instrumental')) {
+        result++;
+      }
+    });
+    return result;
+  },
+
+  stemCount: function () {
+    var result = 0;
+    this.get('tracks').forEach(function (item) {
+      if(item.get('stem')) {
+        result++;
+      }
+    });
+    return result;
+  }
 });
 
 App.initialize();
