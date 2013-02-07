@@ -22,6 +22,7 @@ App.ApplicationView = Ember.View.extend({
   },
 
   result: function () {
+    if (this.get('songCountSelected') === '') return 0;
     var self = this,
       inputs = new function () {
         this.songCount = {
@@ -42,7 +43,8 @@ App.ApplicationView = Ember.View.extend({
 
   songCounts: function () {
     var result = [];
-    for(var i=0 ; i < 25 ; i++) {
+    result.pushObject('');
+    for(var i=1 ; i < 31 ; i++) {
       result.pushObject(i);
     }
     return result;
