@@ -31,7 +31,7 @@ App.ApplicationView = Ember.View.extend({
           2: 0,
           3: 0
         };
-        this.stem = 0;
+        this.stem = self.stemCount();
         this.extraLoud = self.get('extraLoud');
         this.ddpCoding = self.get('ddpCoding');
         this.pressDelivery = self.get('pressDelivery');
