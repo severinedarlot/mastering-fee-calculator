@@ -24,7 +24,7 @@
     <h1>{{view.title}}</h1>
     <div>Nombre total de pistes : {{view Ember.Select contentBinding="view.songCounts" valueBinding="view.songCountSelected"}}</div>
     {{#if view.hasSong}}
-      {{view App.SongsView contentBinding="view.songs"}}
+      {{view App.SongsView contentBinding="view.tracks"}}
       <div>Version "extra loud" : {{view Ember.Checkbox checkedBinding="view.extraLoud"}}</div>
       <div>Création d'une image DDP avec encodage ISRC (à récupérer sur serveur sécurisé) : {{view Ember.Checkbox checkedBinding="view.ddpCoding"}}</div>
       {{#if view.ddpCoding}}

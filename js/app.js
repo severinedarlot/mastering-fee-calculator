@@ -54,19 +54,17 @@ App.ApplicationView = Ember.View.extend({
     return this.get('songCountSelected') > 0;
   }.property('songCountSelected'),
 
-  createSongs: function () {
-    console.log('create songs');
-    if(this.get('songs.length') < this.get('songCountSelected')) {
-      for (var i = this.get('songs.length') ; i < this.get('songCountSelected'); i++) {
-        console.log('create song ' + (i+1));
+  tracks: function () {
+    if (this.get('songCountSelected') === '') return [];
+    if (this.get('songs.length') < this.get('songCountSelected')) {
+      for (var i = this.get('songs.length') ; i < this.get('songCountSelected') ; i++) {
         this.get('songs').pushObject(App.Song.create({number: i+1}));
       }
-    } else {
-      // TODO: remove items or only hide them
     }
-  }.observes('songCountSelected')
-
-
+    return this.get('songs').filter(function (item, index) {
+      return index < this.get('songCountSelected');
+    }, this);
+  }.property('songCountSelected')
 });
 
 App.initialize();
