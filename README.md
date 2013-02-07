@@ -3,6 +3,20 @@ mastering-fee-calculator
 
 Mastering fee calculator
 
+TODO
+---------------------
+
+Tout augmenter de 20% et mettre une case à cocher pour remise artiste indep (15% sur le total)
+
+Ajouter livraison physique
+
+Creation du devis détaillé
+
+Info sur la signification stem
+
+
+
+
 Pour lancer les tests
 ---------------------
 

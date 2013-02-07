@@ -25,10 +25,12 @@
     <div>Nombre total de pistes : {{view Ember.Select contentBinding="view.songCounts" valueBinding="view.songCountSelected"}}</div>
     {{#if view.hasSong}}
       {{view App.SongsView contentBinding="view.songs"}}
-      <div>Extra loud : {{view Ember.Checkbox checkedBinding="view.extraLoud"}}</div>
-      <div>Image DDP avec code ISRC (fourni sur support DVD) : {{view Ember.Checkbox checkedBinding="view.ddpCoding"}}</div>
+      <div>Version "extra loud" : {{view Ember.Checkbox checkedBinding="view.extraLoud"}}</div>
+      <div>Création d'une image DDP avec encodage ISRC (à récupérer sur serveur sécurisé) : {{view Ember.Checkbox checkedBinding="view.ddpCoding"}}</div>
       {{#if view.ddpCoding}}
-        <div>Livraison numérique à l'usine de pressage : {{view Ember.Checkbox checkedBinding="view.pressDelivery"}}</div>
+        Livraison à l'usine de pressage :
+        <div>Livraison numérique {{view Ember.Checkbox checkedBinding="view.pressDelivery"}} 10</div>
+        <div>Livraison physique (DVD pour l'image DDP et CD master pour contrôle) : {{view Ember.Checkbox checkedBinding="view.pressDelivery"}} 20</div>
       {{/if}}
       <div>Envoi postal : {{view Ember.Checkbox checkedBinding="view.postalSending"}}</div>
 
@@ -46,7 +48,7 @@
               optionLabelPath="content.label"
               valueBinding="view.content.length"}}</td>
       <td>Stem {{view Ember.Checkbox checkedBinding="view.content.stem"}}</td>
-      <td>Instrumental {{view Ember.Checkbox checkedBinding="view.content.instrumental"}}</td>
+      <td>Version Instrumentale (PBO) {{view Ember.Checkbox checkedBinding="view.content.instrumental"}}</td>
     </tr>
 </script>
 

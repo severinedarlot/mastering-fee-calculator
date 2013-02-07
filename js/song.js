@@ -20,5 +20,10 @@ App.durations = [
   Ember.Object.create({label: "40-45mn", id: 8}),
   Ember.Object.create({label: "45-50mn", id: 9}),
   Ember.Object.create({label: "50-55mn", id: 10}),
-  Ember.Object.create({label: "55-60mn", id: 11})
+  Ember.Object.create({label: "55-60mn", id: 11}),
+  Ember.Object.create({label: "55-60mn", id: 12}),
+  Ember.Object.create({label: "60-65mn", id: 13}),
+  Ember.Object.create({label: "65-70mn", id: 14}),
+  Ember.Object.create({label: "70-75mn", id: 15}),
+  Ember.Object.create({label: "70-80mn", id: 16})
 ];
