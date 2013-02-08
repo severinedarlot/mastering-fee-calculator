@@ -104,6 +104,14 @@ describe('Calculator', function(){
       };
       assert.equal(30 + 20 + 35, calculator.compute(inputs));
   });
+  it('with DDP coding and numeric press delivery', function () {
+    var inputs = new function () {
+      this.ddpCoding = true;
+      this.numericDelivery = true;
+      this.songCount = {0: 1};
+    };
+    assert.equal(30 + 10 + 35, calculator.compute(inputs));
+  });
   it('with postal sending', function () {
       var inputs = new function () {
           this.postalSending = true;
