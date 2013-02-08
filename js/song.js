@@ -2,10 +2,7 @@ App.Song = Ember.Object.extend({
   number: null,
   length: 0,
   stem: false,
-  instrumental: false,
-  lengthMove: function () {
-    console.log('length move', this.get('length'));
-  }.observes('length')
+  instrumental: false
 });
 
 App.durations = [

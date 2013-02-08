@@ -25,12 +25,7 @@ App.ApplicationView = Ember.View.extend({
     if (this.get('songCountSelected') === '') return 0;
     var self = this,
       inputs = new function () {
-        this.songCount = {
-          0: self.get('songCountSelected'),
-          1: 0,
-          2: 0,
-          3: 0
-        };
+        this.songCount = self.computeTracksHash();
         this.stem = self.stemCount();
         this.extraLoud = self.get('extraLoud');
         this.ddpCoding = self.get('ddpCoding');
@@ -39,7 +34,7 @@ App.ApplicationView = Ember.View.extend({
         this.postalSending = self.get('postalSending');
       };
     return compute(inputs);
-  }.property('songCountSelected', 'extraLoud', 'ddpCoding', 'pressDelivery', 'postalSending', 'tracks@each.length', 'tracks.@each.stem', 'tracks.@each.instrumental'),
+  }.property('songCountSelected', 'extraLoud', 'ddpCoding', 'pressDelivery', 'postalSending', 'tracks.@each.length', 'tracks.@each.stem', 'tracks.@each.instrumental'),
 
   songCounts: function () {
     var result = [];
@@ -82,6 +77,19 @@ App.ApplicationView = Ember.View.extend({
     this.get('tracks').forEach(function (item) {
       if(item.get('stem')) {
         result++;
+      }
+    });
+    return result;
+  },
+
+  computeTracksHash: function () {
+    var result = {};
+    this.get('tracks').forEach(function (track) {
+      var length = track.get('length');
+      if(result[length]) {
+        result[length]++;
+      } else {
+        result[length] = 1;
       }
     });
     return result;
