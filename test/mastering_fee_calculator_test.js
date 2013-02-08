@@ -91,7 +91,7 @@ describe('Calculator', function(){
   it('with DDP coding', function () {
     var inputs = new function () {
       this.ddpCoding = true;
-      this.pressDelivery = false;
+      this.physicDelivery = false;
       this.songCount = {0: 1};
     };
     assert.equal(30 + 35, calculator.compute(inputs));
@@ -99,7 +99,7 @@ describe('Calculator', function(){
   it('with DDP coding and press delivery', function () {
       var inputs = new function () {
           this.ddpCoding = true;
-          this.pressDelivery = true;
+          this.physicDelivery = true;
           this.songCount = {0: 1};
       };
       assert.equal(30 + 40 + 35, calculator.compute(inputs));

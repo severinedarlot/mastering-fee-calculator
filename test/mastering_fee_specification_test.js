@@ -8,7 +8,7 @@ describe('Calculator', function(){
       this.stem = 13;
       this.extraLoud = true;
       this.ddpCoding = true;
-      this.pressDelivery = true;
+      this.physicDelivery = true;
       this.pboInstru = 5;
       this.postalSending = true;
     };
