@@ -102,7 +102,7 @@ describe('Calculator', function(){
           this.physicDelivery = true;
           this.songCount = {0: 1};
       };
-      assert.equal(30 + 40 + 35, calculator.compute(inputs));
+      assert.equal(30 + 20 + 35, calculator.compute(inputs));
   });
   it('with postal sending', function () {
       var inputs = new function () {
