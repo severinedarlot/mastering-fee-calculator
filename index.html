@@ -29,8 +29,8 @@
       <div>Création d'une image DDP avec encodage ISRC (à récupérer sur serveur sécurisé) : {{view Ember.Checkbox checkedBinding="view.ddpCoding"}}</div>
       {{#if view.ddpCoding}}
         Livraison à l'usine de pressage :
-        <div>Livraison numérique {{view Ember.Checkbox checkedBinding="view.physicDelivery"}} 10</div>
-        <div>Livraison physique (DVD pour l'image DDP et CD master pour contrôle) : {{view Ember.Checkbox checkedBinding="view.physicDelivery"}} 20</div>
+        <div>Livraison numérique {{view Ember.Checkbox checkedBinding="view.numericDelivery"}}</div>
+        <div>Livraison physique (DVD pour l'image DDP et CD master pour contrôle) : {{view Ember.Checkbox checkedBinding="view.physicDelivery"}}</div>
       {{/if}}
       <div>Envoi postal : {{view Ember.Checkbox checkedBinding="view.postalSending"}}</div>
 
