@@ -23,6 +23,7 @@ Then, `bundle exec rakep build` will assemble the app according to the Assetfile
 
 While you're developing you can run bundle exec rakep server and rake-pipeline will serve your app on port 9292.
 
-Pour lancer les tests
+Tests
 ---------------------
 
+You can view test here: `test/test.html`
