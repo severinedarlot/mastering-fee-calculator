@@ -1,7 +1,5 @@
-mastering-fee-calculator
+Mastering-fee-calculator
 ========================
-
-Mastering fee calculator
 
 Pour lancer les tests
 ---------------------
