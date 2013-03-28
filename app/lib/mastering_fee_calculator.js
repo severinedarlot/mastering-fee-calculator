@@ -8,7 +8,7 @@ var extra = function (songPrice, songCounts) {
   return extraPrice;
 };
 
-var compute = function (inputs) {
+compute = function (inputs) {
   var songCount = 0,
     songPrice = 0,
     basicPrice = 35,
@@ -58,7 +58,5 @@ var compute = function (inputs) {
   }
   return Math.ceil(price * 100) / 100;
 };
-
-module.exports.compute = compute;
 
 

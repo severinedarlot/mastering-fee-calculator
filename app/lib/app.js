@@ -1,8 +1,20 @@
-var App = Ember.Application.create();
+require('mastering-fee-calculator/vendor/jquery-1.9.0');
+require('mastering-fee-calculator/vendor/handlebars-1.0.0.rc.3');
+require('mastering-fee-calculator/vendor/ember-1.0.0-rc1');
+
+App = Ember.Application.create();
+
+require('mastering-fee-calculator/song');
+require('mastering-fee-calculator/songs_view');
+require('mastering-fee-calculator/mastering_fee_calculator');
+require('mastering-fee-calculator/templates/main_view');
+require('mastering-fee-calculator/templates/song_line');
+
 
 App.ApplicationController = Ember.Controller.extend();
+
 App.ApplicationView = Ember.View.extend({
-  templateName: 'application',
+  templateName: 'main_view',
   title: 'Calculator',
   songs: null,
   songCountSelected: 0,
@@ -35,7 +47,7 @@ App.ApplicationView = Ember.View.extend({
         this.pboInstru = self.pboInstruCount();
         this.postalSending = self.get('postalSending');
       };
-    return compute(inputs);
+    return window.compute(inputs);
   }.property('songCountSelected', 'extraLoud', 'ddpCoding', 'physicDelivery', 'numericDelivery', 'postalSending', 'tracks.@each.length', 'tracks.@each.stem', 'tracks.@each.instrumental'),
 
   songCounts: function () {

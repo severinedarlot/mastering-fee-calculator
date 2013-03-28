@@ -1,0 +1,11 @@
+<tr>
+    <td>Piste {{view.content.number}}</td>
+    <td>{{view Ember.Select
+    contentBinding="App.durations"
+    optionValuePath="content.id"
+    optionLabelPath="content.label"
+    valueBinding="view.content.length"}}
+    </td>
+    <td>Stem {{view Ember.Checkbox checkedBinding="view.content.stem"}}</td>
+    <td>Version Instrumentale (PBO) {{view Ember.Checkbox checkedBinding="view.content.instrumental"}}</td>
+</tr>

@@ -1,5 +1,5 @@
 var assert = require("assert"),
-  calculator = require("../lib/mastering_fee_calculator");
+  calculator = require("../app/lib/mastering_fee_calculator");
 
 describe('Calculator', function(){
   it('Big simulation 360 + 360/13/2 + 12*13 + 12*13 + 30 + 20 + 10 + 12*5 + 15', function(){
