@@ -1,3 +1,12 @@
 html, body {
   margin: 20px;
 }
+
+.count-input {
+  width: 40px;
+
+}
+
+label {
+	margin-right: 10px;
+}

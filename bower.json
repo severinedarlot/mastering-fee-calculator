@@ -1,5 +1,5 @@
 {
-  "name": "mastering-fee-calculator2",
+  "name": "mastering-fee-calculator",
   "dependencies": {
     "handlebars": "~1.3.0",
     "jquery": "^1.11.1",
