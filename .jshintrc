@@ -2,7 +2,7 @@
   "predef": {
     "document": true,
     "window": true,
-    "MasteringFeeCalculator2ENV": true
+    "MasteringFeeCalculatorENV": true
   },
   "browser" : true,
   "boss" : true,

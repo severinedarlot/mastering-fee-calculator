@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>MasteringFeeCalculator2</title>
+    <title>MasteringFeeCalculator</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,13 +14,13 @@
   </head>
   <body>
     <script>
-      window.MasteringFeeCalculator2ENV = {{ENV}};
-      window.EmberENV = window.MasteringFeeCalculator2ENV.EmberENV;
+      window.MasteringFeeCalculatorENV = {{ENV}};
+      window.EmberENV = window.MasteringFeeCalculatorENV.EmberENV;
     </script>
     <script src="assets/vendor.js"></script>
-    <script src="assets/mastering-fee-calculator2.js"></script>
+    <script src="assets/mastering-fee-calculator.js"></script>
     <script>
-      window.MasteringFeeCalculator2 = require('mastering-fee-calculator2/app')['default'].create(MasteringFeeCalculator2ENV.APP);
+      window.MasteringFeeCalculator = require('mastering-fee-calculator/app')['default'].create(MasteringFeeCalculatorENV.APP);
     </script>
   </body>
 </html>
