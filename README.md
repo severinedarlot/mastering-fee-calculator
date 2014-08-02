@@ -9,7 +9,7 @@ Se positionner dans le répertoire `test` et faire :
 `mocha mastering_fee_calculator_test.js`
 
 
-Prérequis
+Prérequis()
 ---------
 
 ###node.js
@@ -33,7 +33,25 @@ Procédure d'installation de npm :
 
 `curl http://npmjs.org/install.sh | sh`
 
-Si problème de sécuriter, changer temporairement les droits du répertoire /usr/bin/node
+Si problème de sécurité, changer temporairement les droits du répertoire /usr/bin/node
+
+### Ember CLI
+
+Site [http://www.ember-cli.com/]
+
+`npm install -g ember-cli`
+
+### Bower
+
+Package manager qui permet de garder les dépendances à jour
+
+`npm install -g bower`
+
+### PhantomJS
+
+Les tests d'intégration sont lancés avec PhantomJS:
+
+`npm install -g phantomjs`
 
 ###mocha
 
