@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MasteringFeeCalculator2</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{BASE_TAG}}
+
+    <link rel="stylesheet" href="assets/vendor.css">
+    <link rel="stylesheet" href="assets/mastering-fee-calculator2.css">
+  </head>
+  <body>
+    <script>
+      window.MasteringFeeCalculator2ENV = {{ENV}};
+      window.EmberENV = window.MasteringFeeCalculator2ENV.EmberENV;
+    </script>
+    <script src="assets/vendor.js"></script>
+    <script src="assets/mastering-fee-calculator2.js"></script>
+    <script>
+      window.MasteringFeeCalculator2 = require('mastering-fee-calculator2/app')['default'].create(MasteringFeeCalculator2ENV.APP);
+    </script>
+  </body>
+</html>

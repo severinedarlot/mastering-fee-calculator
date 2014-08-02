@@ -1,62 +1,25 @@
-Mastering-fee-calculator
-========================
+# Mastering-fee-calculator2
 
-Pour lancer les tests
----------------------
+This README outlines the details of collaborating on this Ember application.
 
-Se positionner dans le répertoire `test` et faire :
+## Installation
 
-`mocha mastering_fee_calculator_test.js`
+* `git clone` this repository
+* `npm install`
+* `bower install`
 
+## Running
 
-Prérequis()
----------
+* `ember server`
+* Visit your app at http://localhost:4200.
 
-###node.js
+## Running Tests
 
-Procédure d'installation de node.js :
-<pre>
-mkdir tmp
-cd tmp
-curl http://nodejs.org/dist/node-latest.tar.gz -o node-latest.tar.gz
-tar xvf node-latest.tar.gz
-cd node-v0.x.x
-./configure
-make
-make install
-node -v
-</pre>
+* `ember test`
+* `ember test --server`
 
-###npm : Node Package Manager
+## Building
 
-Procédure d'installation de npm :
+* `ember build`
 
-`curl http://npmjs.org/install.sh | sh`
-
-Si problème de sécurité, changer temporairement les droits du répertoire /usr/bin/node
-
-### Ember CLI
-
-Site [http://www.ember-cli.com/]
-
-`npm install -g ember-cli`
-
-### Bower
-
-Package manager qui permet de garder les dépendances à jour
-
-`npm install -g bower`
-
-### PhantomJS
-
-Les tests d'intégration sont lancés avec PhantomJS:
-
-`npm install -g phantomjs`
-
-###mocha
-
-Procédure d'installation de mocha
-
-`npm install -g mocha`
-
-
+For more information on using ember-cli, visit [http://iamstef.net/ember-cli/](http://iamstef.net/ember-cli/).
