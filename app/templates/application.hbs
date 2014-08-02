@@ -4,7 +4,7 @@
     	<form role="form-horizontal" role="form">
           <div class="row form-group">
               <label class="col-xs-7">Nombre de titres à masteriser de moins de 4' </label>
-              <input class="col-xs-5 count-input" type="number" value='0' name="TitleCountOf4">
+              <input class="col-xs-5 count-input" type="number" value=0 name="TitleCountOf4">
           </div>
           <div class="row form-group">
             <label class="col-xs-7">Nombre de titres à masteriser entre 4' et 8' </label>
@@ -14,28 +14,36 @@
             <label class="col-xs-7">Nombre de titres à masteriser entre 8' et 15' </label>
             <input class="col-xs-5 count-input" type="number" value='0' name="TitleCount8and15">
           </div>
-          <div class="form-group">
-            <label>Contrat de l'artiste </label>
-            <div class="radio">
-              <label>
-                <input type="radio" name="inlineRadioOptions" value="option1"> Major   (ou l'un de ses labesl)          
-              </label>          
-              <label>          
-                <input type="radio" name="inlineRadioOptions" value="option2"> Label   indépendant            
-              </label>          
-              <label>          
-                <input type="radio" name="inlineRadioOptions" value="option3"> Non   signé (ou 1er album)        
-              </label>    
-            </div>    
+          <div class="row form-group">
+            <div class="col-xs-4"><label>Contrat de l'artiste </label></div>
+            <div class="col-xs-8">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="inlineRadioOptions" value="option1"> Major (ou l'un de ses labels)            
+                </label>   
+              </div>  
+              <div class="radio">           
+                <label>            
+                  <input type="radio" name="inlineRadioOptions" value="option2">Label  indépendant              
+                </label>  
+              </div>
+              <div class="radio">           
+                <label>            
+                  <input type="radio" name="inlineRadioOptions" value="option3">   Non signé (ou 1er album)          
+                </label>    
+              </div>    
+            </div>
           </div>
-          <div class="form-group">
-            <label>Type de mastering </label>
-            <label class="radio-inline">
-              <input type="radio" name="byTitle" value="title"> Mastering par titre 
-            </label>        
-              <label class="radio-inline">        
-              <input type="radio" name="masteringCD" value="cd"> Mastering CD      
-            </label>        
+          <div class="row form-group">
+            <div class="col-xs-4"><label>Type de mastering </label></div>
+            <div class="col-xs-8">
+              <label class="radio-inline">
+                <input type="radio" name="masteringType" value="title"> Mastering par titre 
+              </label>        
+                <label class="radio-inline">        
+                <input type="radio" name="masteringType" value="cd"> Mastering CD      
+              </label>        
+            </div>
          </div>
         </form>
     </div>
