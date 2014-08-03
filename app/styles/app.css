@@ -3,10 +3,5 @@ html, body {
 }
 
 .count-input {
-  width: 40px;
-
-}
-
-label {
-	margin-right: 10px;
+  width: 100px;
 }
