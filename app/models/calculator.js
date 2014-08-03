@@ -1,4 +1,4 @@
-import DS from 'ember-data';
+import Ember from 'ember';
 
 var Calculator = Ember.Object.extend({
   less4: 4,
