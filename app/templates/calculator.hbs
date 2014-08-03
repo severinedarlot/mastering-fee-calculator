@@ -1,0 +1,76 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+    	<form role="form-horizontal" role="form">
+          <div class="row form-group">
+              <label class="col-xs-7">Nombre de titres à masteriser de moins de 4' </label>
+              {{input type="number" class="col-xs-5 count-input" value=less4 min="0" max="30"}}
+          </div>
+          <div class="row form-group">
+            <label class="col-xs-7">Nombre de titres à masteriser entre 4' et 8' </label>
+            {{input type="number" class="col-xs-5 count-input" value=between4and8 min="0" max="30"}}
+          </div>
+          <div class="row form-group">
+            <label class="col-xs-7">Nombre de titres à masteriser entre 8' et 15' </label>
+            {{input type="number" class="col-xs-5 count-input" value=more8 min="0" max="30"}}
+          </div>
+          <div class="row form-group">
+            <div class="col-xs-4"><label>Contrat de l'artiste </label></div>
+            <div class="col-xs-8">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="inlineRadioOptions" value="option1"> Major (ou l'un de ses labels)            
+                </label>   
+              </div>  
+              <div class="radio">           
+                <label>            
+                  <input type="radio" name="inlineRadioOptions" value="option2">Label  indépendant              
+                </label>  
+              </div>
+              <div class="radio">           
+                <label>            
+                  <input type="radio" name="inlineRadioOptions" value="option3">   Non signé (ou 1er album)          
+                </label>    
+              </div>    
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-xs-4"><label>Type de mastering </label></div>
+            <div class="col-xs-8">
+              <label class="radio-inline">
+                <input type="radio" name="masteringType" value="title"> Mastering par titre 
+              </label>        
+                <label class="radio-inline">        
+                <input type="radio" name="masteringType" value="cd"> Mastering CD      
+              </label>        
+            </div>
+         </div>
+        </form>
+    </div>
+    
+    <div class="col-md-6">
+    	<table class="table table-striped">
+        <tr>
+        <td>{{totalCount}} x traitements mastering (réglage individuel pour chaque titre)</td>
+        <td>304 &#8364;</td>
+        <tr>
+                <tr>
+        <td>Livraison par téléchargement sur serveur sécurisé</td>
+        <td>0 &#8364;</td>
+        <tr>
+                <tr>
+        <td>Total HT</td>
+        <td>304 &#8364; HT</td>
+        <tr>
+                <tr>
+        <td>TVA</td>
+        <td>20 &#37;</td>
+        <tr>
+                <tr>
+        <td>Total TTC</td>
+        <td>364,80 &#8364; TTC</td>
+        <tr>
+      </table>
+    </div>
+  </div>
+</div>
