@@ -23,6 +23,8 @@ var Calculator = Ember.Object.extend({
       songPrice = this.get('basicPrice');
     } else if ( 6 <= this.get('totalCount') && this.get('totalCount') < 13 ) {
       songPrice = this.get('epPrice') / 6;
+    } else {
+      songPrice = this.get('lpPrice') / 13;
     }
     return songPrice * this.get('totalCount');
   }.property('totalCount'),

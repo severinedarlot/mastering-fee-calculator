@@ -50,6 +50,21 @@ test('EP price: should return 270/6 * 12 = 540 when there is 12 songs', function
   equal(calculator.get('titlesPrice'), 540);
 });
 
+test('LP price is 13 songs and cost 520', function () {
+	var calculator = calculatorFactory({firstSliceCount: 13});
+  equal(calculator.get('titlesPrice'), 520);
+});
+
+test('LP price: should return 520/13 * 14 = 560 when there is 14 songs', function () {
+  var calculator = calculatorFactory({firstSliceCount: 14});
+  equal(calculator.get('titlesPrice'), 560);
+});
+
+test('LP price: should return 520/13 * 20 = 800 when there is 20 songs', function(){
+  var calculator = calculatorFactory({firstSliceCount: 20});
+  equal(calculator.get('titlesPrice'), 800);
+});
+
 function calculatorFactory(input) {
   var calc;
 	Ember.run(function() {
