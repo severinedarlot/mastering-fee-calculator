@@ -65,6 +65,31 @@ test('LP price: should return 520/13 * 20 = 800 when there is 20 songs', functio
   equal(calculator.get('titlesPrice'), 800);
 });
 
+test('with 1 song between 4 and 8 minutes give 48 + 48/2 = 72', function () {
+  var calculator = calculatorFactory({secondSliceCount: 1});
+  equal(calculator.get('titlesPrice'), 72);
+});
+
+test('with 1 song between 8 and 12 minutes give 48 + 48*2/2 = 96', function () {
+	var calculator = calculatorFactory({thirdSliceCount: 1});
+  equal(calculator.get('titlesPrice'), 96);
+});
+
+test('with 1 song between 12 and 16 minutes give 48 + 48*3/2 = 120', function () {
+	var calculator = calculatorFactory({fourthSliceCount: 1});
+  equal(calculator.get('titlesPrice'), 120);
+  });
+
+test('with 1 basic song and 1 song between 4 and 8 minutes give 48 * 2 + 48/2 = 120', function () {
+  var calculator = calculatorFactory({firstSliceCount: 1, secondSliceCount: 1});
+  equal(calculator.get('titlesPrice'), 120);
+});
+
+test('with 4 basic songs and 2 songs between 8 and 12 minutes give 6 * 270/6 + 270/6*3/2*2 = 405', function () {
+	var calculator = calculatorFactory({firstSliceCount: 4, fourthSliceCount: 2});
+  equal(calculator.get('titlesPrice'), 405);
+});
+
 function calculatorFactory(input) {
   var calc;
 	Ember.run(function() {

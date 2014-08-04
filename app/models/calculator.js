@@ -26,12 +26,26 @@ var Calculator = Ember.Object.extend({
     } else {
       songPrice = this.get('lpPrice') / 13;
     }
-    return songPrice * this.get('totalCount');
+    return songPrice * this.get('totalCount') + 
+      this.secondExtra(songPrice) + this.thirdExtra(songPrice) + this.fourthExtra(songPrice);
   }.property('totalCount'),
 
   htPrice: function () {
     return this.get('titlesPrice');
-  }.property('titlesPrice')
+  }.property('titlesPrice'),
+
+  secondExtra: function (songPrice) {
+    return 1/2 * songPrice * parseInt(this.get('secondSliceCount'));
+  },
+
+  thirdExtra: function (songPrice) {
+    return 2/2 * songPrice * parseInt(this.get('thirdSliceCount'));
+  },
+
+  fourthExtra: function (songPrice) {
+    return 3/2 * songPrice * parseInt(this.get('fourthSliceCount'));
+  }
+
 });
 
 export default Calculator;
