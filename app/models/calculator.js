@@ -4,6 +4,7 @@ var Calculator = Ember.Object.extend({
   basicPrice: 48,
   epPrice: 270,
   lpPrice: 520,
+  tva: 20,
 
   firstSliceCount: 0,
   secondSliceCount: 0,
@@ -33,6 +34,10 @@ var Calculator = Ember.Object.extend({
   htPrice: function () {
     return this.get('titlesPrice');
   }.property('titlesPrice'),
+
+  ttcPrice: function () {
+    return this.get('htPrice') + this.get('htPrice') * this.get('tva') / 100;
+  }.property('htPrice'),
 
   secondExtra: function (songPrice) {
     return 1/2 * songPrice * parseInt(this.get('secondSliceCount'));

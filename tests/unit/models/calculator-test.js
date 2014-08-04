@@ -16,6 +16,7 @@ test('When nothing, fee prices are zero', function () {
 	var calculator = calculatorFactory({});
   equal(calculator.get('titlesPrice'), 0);
 	equal(calculator.get('htPrice'), 0);
+	equal(calculator.get('ttcPrice'), 0);
 });
 
 test('titlesPrice should return 48 when there is 1 song of first slice', function () {
@@ -88,6 +89,12 @@ test('with 1 basic song and 1 song between 4 and 8 minutes give 48 * 2 + 48/2 = 
 test('with 4 basic songs and 2 songs between 8 and 12 minutes give 6 * 270/6 + 270/6*3/2*2 = 405', function () {
 	var calculator = calculatorFactory({firstSliceCount: 4, fourthSliceCount: 2});
   equal(calculator.get('titlesPrice'), 405);
+});
+
+test('TTC price is HT price with TVA 20%', function () {
+	var calculator = calculatorFactory({firstSliceCount: 1});
+  equal(calculator.get('htPrice'), 48);
+	equal(calculator.get('ttcPrice'), 57.60);
 });
 
 function calculatorFactory(input) {
