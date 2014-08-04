@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 var Calculator = Ember.Object.extend({
   basicPrice: 48,
+  epPrice: 270,
+  lpPrice: 520,
 
   firstSliceCount: 0,
   secondSliceCount: 0,
@@ -18,9 +20,11 @@ var Calculator = Ember.Object.extend({
   titlesPrice: function () {
     var songPrice = 0;
     if (this.get('totalCount') < 6) {
-      songPrice = this.get('basicPrice') * this.get('totalCount');
+      songPrice = this.get('basicPrice');
+    } else if ( 6 <= this.get('totalCount') && this.get('totalCount') < 13 ) {
+      songPrice = this.get('epPrice') / 6;
     }
-    return songPrice;
+    return songPrice * this.get('totalCount');
   }.property('totalCount'),
 
   htPrice: function () {
