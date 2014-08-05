@@ -13,7 +13,7 @@ test('total count  = firstSliceCount + secondSliceCount + thirdSliceCount + four
 });
 
 test('When nothing, fee prices are zero', function () {
-	var calculator = calculatorFactory({});
+	var calculator = calculatorFactory({ddp: false});
   equal(calculator.get('titlesPrice'), 0);
 	equal(calculator.get('htPrice'), 0);
 	equal(calculator.get('ttcPrice'), 0);
@@ -21,108 +21,108 @@ test('When nothing, fee prices are zero', function () {
 
 test('titlesPrice should return 48 when there is 1 song of first slice', function () {
 	var calculator = calculatorFactory({
-    firstSliceCount: 1
+    firstSliceCount: 1, ddp: false
   });
 	equal(calculator.get('titlesPrice'), 48);
 });
 
 test('titlesPrice should return 48 * 2 = 96 when there is 2 songs', function () {
-  var calculator = calculatorFactory({firstSliceCount: 2});
+  var calculator = calculatorFactory({firstSliceCount: 2, ddp: false});
   equal(calculator.get('titlesPrice'), 96);
 });
 
 test('1 EP is 6 songs and cost 270', function () {
-  var calculator = calculatorFactory({firstSliceCount: 6});
+  var calculator = calculatorFactory({firstSliceCount: 6, ddp: false});
   equal(calculator.get('titlesPrice'), 270);
 });
 
 test('EP price: should return 270/6 * 7 = 315 when there is 7 songs', function () {
-  var calculator = calculatorFactory({firstSliceCount: 7});
+  var calculator = calculatorFactory({firstSliceCount: 7, ddp: false});
   equal(calculator.get('titlesPrice'), 315);
 });
 
 test('EP price: should return 270/6 * 11 = 495 when there is 11 songs', function () {
-  var calculator = calculatorFactory({firstSliceCount: 11});
+  var calculator = calculatorFactory({firstSliceCount: 11, ddp: false});
   equal(calculator.get('titlesPrice'), 495);
 });
 
 test('EP price: should return 270/6 * 12 = 540 when there is 12 songs', function () {
-  var calculator = calculatorFactory({firstSliceCount: 12});
+  var calculator = calculatorFactory({firstSliceCount: 12, ddp: false});
   equal(calculator.get('titlesPrice'), 540);
 });
 
 test('LP price is 13 songs and cost 520', function () {
-	var calculator = calculatorFactory({firstSliceCount: 13});
+	var calculator = calculatorFactory({firstSliceCount: 13, ddp: false});
   equal(calculator.get('titlesPrice'), 520);
 });
 
 test('LP price: should return 520/13 * 14 = 560 when there is 14 songs', function () {
-  var calculator = calculatorFactory({firstSliceCount: 14});
+  var calculator = calculatorFactory({firstSliceCount: 14, ddp: false});
   equal(calculator.get('titlesPrice'), 560);
 });
 
 test('LP price: should return 520/13 * 20 = 800 when there is 20 songs', function(){
-  var calculator = calculatorFactory({firstSliceCount: 20});
+  var calculator = calculatorFactory({firstSliceCount: 20, ddp: false});
   equal(calculator.get('titlesPrice'), 800);
 });
 
 test('with 1 song between 4 and 8 minutes give 48 + 48/2 = 72', function () {
-  var calculator = calculatorFactory({secondSliceCount: 1});
+  var calculator = calculatorFactory({secondSliceCount: 1, ddp: false});
   equal(calculator.get('titlesPrice'), 72);
 });
 
 test('with 1 song between 8 and 12 minutes give 48 + 48*2/2 = 96', function () {
-	var calculator = calculatorFactory({thirdSliceCount: 1});
+	var calculator = calculatorFactory({thirdSliceCount: 1, ddp: false});
   equal(calculator.get('titlesPrice'), 96);
 });
 
 test('with 1 song between 12 and 16 minutes give 48 + 48*3/2 = 120', function () {
-	var calculator = calculatorFactory({fourthSliceCount: 1});
+	var calculator = calculatorFactory({fourthSliceCount: 1, ddp: false});
   equal(calculator.get('titlesPrice'), 120);
   });
 
 test('with 1 basic song and 1 song between 4 and 8 minutes give 48 * 2 + 48/2 = 120', function () {
-  var calculator = calculatorFactory({firstSliceCount: 1, secondSliceCount: 1});
+  var calculator = calculatorFactory({firstSliceCount: 1, secondSliceCount: 1, ddp: false});
   equal(calculator.get('titlesPrice'), 120);
 });
 
 test('with 4 basic songs and 2 songs between 8 and 12 minutes give 6 * 270/6 + 270/6*3/2*2 = 405', function () {
-	var calculator = calculatorFactory({firstSliceCount: 4, fourthSliceCount: 2});
+	var calculator = calculatorFactory({firstSliceCount: 4, fourthSliceCount: 2, ddp: false});
   equal(calculator.get('titlesPrice'), 405);
 });
 
 test('TTC price is HT price with TVA 20%', function () {
-	var calculator = calculatorFactory({firstSliceCount: 1});
+	var calculator = calculatorFactory({firstSliceCount: 1, ddp: false});
   equal(calculator.get('htPrice'), 48);
 	equal(calculator.get('ttcPrice'), 57.60);
 });
 
 test('with stem mastering is 20% of titlesPrices', function () {
-  var calculator = calculatorFactory({firstSliceCount: 1, stems: true});
+  var calculator = calculatorFactory({firstSliceCount: 1, stems: true, ddp: false});
   equal(calculator.get('stemsTotalPrice'), 10);
   equal(calculator.get('htPrice'), 58);
 });
 
 test('with stem mastering with 2 songs is 20% of titlesPrices', function () {
-  var calculator = calculatorFactory({firstSliceCount: 2, stems: true});
+  var calculator = calculatorFactory({firstSliceCount: 2, stems: true, ddp: false});
   equal(calculator.get('stemsTotalPrice'), 20);
   equal(calculator.get('htPrice'), 116);
 });
 
 test('with stem mastering with 7 songs', function () {
-  var calculator = calculatorFactory({firstSliceCount: 7, stems: true});
+  var calculator = calculatorFactory({firstSliceCount: 7, stems: true, ddp: false});
   equal(calculator.get('stemsTotalPrice'), 63);
   equal(calculator.get('htPrice'), 378);
 });
 
 test('with alternative mastering is 10% of titlesPrices', function () {
-  var calculator = calculatorFactory({firstSliceCount: 1, alternative: true});
+  var calculator = calculatorFactory({firstSliceCount: 1, alternative: true, ddp: false});
   equal(calculator.get('alternativePrice'), 5);
   equal(calculator.get('htPrice'), 53);
 });
 
 test('with mail shipping', function () {
-  var calculator = calculatorFactory({shipping: true});
+  var calculator = calculatorFactory({shipping: true, ddp: false});
   equal(calculator.get('shippingPrice'), 10);
   equal(calculator.get('htPrice'), 10);
 });

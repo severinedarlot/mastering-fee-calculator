@@ -13,7 +13,7 @@ var Calculator = Ember.Object.extend({
   thirdSliceCount: 0,
   fourthSliceCount: 0,
   stems: false,
-  ddp: false,
+  ddp: true,
   shipping: false,
 
   totalCount: function () {
