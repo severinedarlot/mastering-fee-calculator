@@ -28,21 +28,29 @@
                 <input type="radio" name="masteringType" value="cd"> Mastering CD      
               </label>        
             </div>
-         </div>
+          </div>
+          <div class="checkbox">
+            <label>
+              {{input type="checkbox" checkedBinding='stems'}} Morceaux fournis sous forme de <span title="C'est à dire en plusieurs fichiers">stems</span>
+            </label>
+          </div>
         </form>
-    </div>
-    
+    </div>    
     <div class="col-md-6">
     	<table class="table table-striped">
         <tr>
         <td>{{totalCount}} x traitements mastering (réglage individuel pour chaque titre)</td>
         <td>{{titlesPrice}} &#8364;</td>
         <tr>
-                <tr>
+        <tr {{bind-attr class="stems::hidden"}}>
+        <td>Morceaux fournis sous forme de stems</span></td>
+        <td>{{stemsTotalPrice}} &#8364;</td>
+        <tr>
+        <tr class="hidden">
         <td>Livraison par téléchargement sur serveur sécurisé</td>
         <td>0 &#8364;</td>
         <tr>
-                <tr>
+        <tr>
         <td>Total HT</td>
         <td>{{htPrice}} &#8364; HT</td>
         <tr>

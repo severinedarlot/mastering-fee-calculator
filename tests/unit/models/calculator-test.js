@@ -97,6 +97,24 @@ test('TTC price is HT price with TVA 20%', function () {
 	equal(calculator.get('ttcPrice'), 57.60);
 });
 
+test('with stem mastering is 20% of titlesPrices', function () {
+  var calculator = calculatorFactory({firstSliceCount: 1, stems: true});
+  equal(calculator.get('stemsTotalPrice'), 10);
+  equal(calculator.get('htPrice'), 58);
+});
+
+test('with stem mastering with 2 songs is 20% of titlesPrices', function () {
+  var calculator = calculatorFactory({firstSliceCount: 2, stems: true});
+  equal(calculator.get('stemsTotalPrice'), 20);
+  equal(calculator.get('htPrice'), 116);
+});
+
+test('with stem mastering with 7 songs', function () {
+  var calculator = calculatorFactory({firstSliceCount: 7, stems: true});
+  equal(calculator.get('stemsTotalPrice'), 63);
+  equal(calculator.get('htPrice'), 378);
+});
+
 function calculatorFactory(input) {
   var calc;
 	Ember.run(function() {

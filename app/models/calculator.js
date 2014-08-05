@@ -10,6 +10,7 @@ var Calculator = Ember.Object.extend({
   secondSliceCount: 0,
   thirdSliceCount: 0,
   fourthSliceCount: 0,
+  stems: false,
 
   totalCount: function () {
     return parseInt(this.get('firstSliceCount')) + 
@@ -17,6 +18,13 @@ var Calculator = Ember.Object.extend({
       parseInt(this.get('thirdSliceCount')) + 
       parseInt(this.get('fourthSliceCount'));
   }.property('firstSliceCount', 'secondSliceCount', 'thirdSliceCount', 'fourthSliceCount'),
+
+  stemsTotalPrice: function () {
+    if (this.get('stems')) {
+      return Math.ceil(this.get('titlesPrice') * 20 / 100);
+    } 
+    return 0;
+  }.property('stems', 'titlesPrice'),
 
   titlesPrice: function () {
     var songPrice = 0;
@@ -32,8 +40,8 @@ var Calculator = Ember.Object.extend({
   }.property('totalCount'),
 
   htPrice: function () {
-    return this.get('titlesPrice');
-  }.property('titlesPrice'),
+    return this.get('titlesPrice') + this.get('stemsTotalPrice');
+  }.property('titlesPrice', 'stemsTotalPrice'),
 
   ttcPrice: function () {
     return this.get('htPrice') + this.get('htPrice') * this.get('tva') / 100;
