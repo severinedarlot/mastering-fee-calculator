@@ -30,6 +30,13 @@ var Calculator = Ember.Object.extend({
     return 0;
   }.property('stems', 'titlesPrice'),
 
+  alternativePrice: function () {
+    if (this.get('alternative')) {
+      return Math.ceil(this.get('titlesPrice') * 10 / 100);
+    } 
+    return 0;
+  }.property('alternative', 'titlesPrice'),
+
   shippingPrice: function () {
     if (this.get('shipping')) {
       return 10;
@@ -60,8 +67,8 @@ var Calculator = Ember.Object.extend({
   }.property('totalCount'),
 
   htPrice: function () {
-    return this.get('titlesPrice') + this.get('stemsTotalPrice') + this.get('shippingPrice') + this.get('ddpPrice');
-  }.property('titlesPrice', 'stemsTotalPrice', 'shippingPrice', 'ddpPrice'),
+    return this.get('titlesPrice') + this.get('stemsTotalPrice') + this.get('shippingPrice') + this.get('ddpPrice') + this.get('alternativePrice');
+  }.property('titlesPrice', 'stemsTotalPrice', 'shippingPrice', 'ddpPrice', 'alternativePrice'),
 
   ttcPrice: function () {
     return this.get('htPrice') + this.get('htPrice') * this.get('tva') / 100;

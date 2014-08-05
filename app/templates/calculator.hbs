@@ -20,7 +20,7 @@
           </div>
           <div class="checkbox">
             <label>
-              {{input type="checkbox" checkedBinding='ddp'}} Master DDP (+ 30 &#8364; + 4 &#8364; par titre)
+              {{input type="checkbox" checkedBinding='ddp'}} Master DDP (+ {{ddpPackage}} &#8364; + {{ddpByTitle}} &#8364; par titre)
             </label>
           </div>
           <div class="checkbox">
@@ -30,7 +30,7 @@
           </div>
           <div class="checkbox">
             <label>
-              {{input type="checkbox" checkedBinding='alternatives'}} Version alternative (PBO, vocal up) (+ 10%)
+              {{input type="checkbox" checkedBinding='alternative'}} Version alternative (PBO, vocal up) (+ 10%)
             </label>
           </div>
           <div class="checkbox">
@@ -55,9 +55,13 @@
         <td>Morceaux fournis sous forme de stems</span></td>
         <td>{{stemsTotalPrice}} &#8364;</td>
         <tr>
-        <tr class="hidden">
-        <td>Livraison par téléchargement sur serveur sécurisé</td>
-        <td>0 &#8364;</td>
+        <tr {{bind-attr class="ddp::hidden"}}>
+        <td>Livraison DDP</td>
+        <td>{{ddpPrice}} &#8364;</td>
+        <tr>
+        <tr {{bind-attr class="alternative::hidden"}}>
+        <td>Version alternative</td>
+        <td>{{alternativePrice}} &#8364;</td>
         <tr>
         <tr {{bind-attr class="shipping::hidden"}}>
         <td>Envoi postal et manutention</span></td>

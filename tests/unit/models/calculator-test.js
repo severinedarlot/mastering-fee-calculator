@@ -115,6 +115,12 @@ test('with stem mastering with 7 songs', function () {
   equal(calculator.get('htPrice'), 378);
 });
 
+test('with alternative mastering is 10% of titlesPrices', function () {
+  var calculator = calculatorFactory({firstSliceCount: 1, alternative: true});
+  equal(calculator.get('alternativePrice'), 5);
+  equal(calculator.get('htPrice'), 53);
+});
+
 test('with mail shipping', function () {
   var calculator = calculatorFactory({shipping: true});
   equal(calculator.get('shippingPrice'), 10);
