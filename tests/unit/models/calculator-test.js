@@ -133,6 +133,12 @@ test('DDP is 30 + 4 by title', function () {
   equal(calculator.get('htPrice'), 30 + 3*4 + 48 * 3);
 });
 
+test('Presentiel is 15% on all without shipping', function () {
+  var calculator = calculatorFactory({firstSliceCount: 1, shipping: true, ddp: true, presentiel: true});
+  equal(calculator.get('presentielPrice'), 13);
+  equal(calculator.get('htPrice'), 48 + 30 + 4 + 13 + 10);
+});
+
 function calculatorFactory(input) {
   var calc;
 	Ember.run(function() {

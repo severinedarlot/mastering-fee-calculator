@@ -66,9 +66,21 @@ var Calculator = Ember.Object.extend({
       this.secondExtra(songPrice) + this.thirdExtra(songPrice) + this.fourthExtra(songPrice);
   }.property('totalCount'),
 
+  presentielPrice: function () {
+    if(this.get('presentiel')) {
+      return Math.ceil(this.get('beforePresentiel') * 15 / 100);
+    } else {
+      return 0;
+    }
+  }.property('presentiel', 'beforePresentiel'),
+
+  beforePresentiel:  function () {
+    return this.get('titlesPrice') + this.get('stemsTotalPrice') + this.get('ddpPrice') + this.get('alternativePrice');
+  }.property('titlesPrice', 'stemsTotalPrice', 'ddpPrice', 'alternativePrice'),
+
   htPrice: function () {
-    return this.get('titlesPrice') + this.get('stemsTotalPrice') + this.get('shippingPrice') + this.get('ddpPrice') + this.get('alternativePrice');
-  }.property('titlesPrice', 'stemsTotalPrice', 'shippingPrice', 'ddpPrice', 'alternativePrice'),
+    return this.get('beforePresentiel') + this.get('shippingPrice') + this.get('presentielPrice');
+  }.property('beforePresentiel', 'shippingPrice', 'presentielPrice'),
 
   ttcPrice: function () {
     return this.get('htPrice') + this.get('htPrice') * this.get('tva') / 100;
