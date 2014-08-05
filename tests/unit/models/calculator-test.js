@@ -121,6 +121,12 @@ test('with mail shipping', function () {
   equal(calculator.get('htPrice'), 10);
 });
 
+test('DDP is 30 + 4 by title', function () {
+  var calculator = calculatorFactory({firstSliceCount: 3, ddp: true});
+  equal(calculator.get('ddpPrice'), 30 + 3*4);
+  equal(calculator.get('htPrice'), 30 + 3*4 + 48 * 3);
+});
+
 function calculatorFactory(input) {
   var calc;
 	Ember.run(function() {

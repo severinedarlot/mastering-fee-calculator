@@ -5,12 +5,16 @@ var Calculator = Ember.Object.extend({
   epPrice: 270,
   lpPrice: 520,
   tva: 20,
+  ddpPackage: 30,
+  ddpByTitle: 4,
 
   firstSliceCount: 0,
   secondSliceCount: 0,
   thirdSliceCount: 0,
   fourthSliceCount: 0,
   stems: false,
+  ddp: false,
+  shipping: false,
 
   totalCount: function () {
     return parseInt(this.get('firstSliceCount')) + 
@@ -26,6 +30,22 @@ var Calculator = Ember.Object.extend({
     return 0;
   }.property('stems', 'titlesPrice'),
 
+  shippingPrice: function () {
+    if (this.get('shipping')) {
+      return 10;
+    } else {
+      return 0;
+    }
+  }.property('shipping'),
+
+  ddpPrice: function () {
+    if (this.get('ddp')) {
+      return this.get('ddpPackage') + this.get('totalCount') * this.get('ddpByTitle');
+    } else {
+      return 0;
+    }
+  }.property('ddp', 'totalCount'),
+
   titlesPrice: function () {
     var songPrice = 0;
     if (this.get('totalCount') < 6) {
@@ -40,8 +60,8 @@ var Calculator = Ember.Object.extend({
   }.property('totalCount'),
 
   htPrice: function () {
-    return this.get('titlesPrice') + this.get('stemsTotalPrice');
-  }.property('titlesPrice', 'stemsTotalPrice'),
+    return this.get('titlesPrice') + this.get('stemsTotalPrice') + this.get('shippingPrice') + this.get('ddpPrice');
+  }.property('titlesPrice', 'stemsTotalPrice', 'shippingPrice', 'ddpPrice'),
 
   ttcPrice: function () {
     return this.get('htPrice') + this.get('htPrice') * this.get('tva') / 100;
