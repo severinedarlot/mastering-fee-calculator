@@ -115,6 +115,12 @@ test('with stem mastering with 7 songs', function () {
   equal(calculator.get('htPrice'), 378);
 });
 
+test('with mail shipping', function () {
+  var calculator = calculatorFactory({shipping: true});
+  equal(calculator.get('shippingPrice'), 10);
+  equal(calculator.get('htPrice'), 10);
+});
+
 function calculatorFactory(input) {
   var calc;
 	Ember.run(function() {

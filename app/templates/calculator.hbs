@@ -15,23 +15,32 @@
             {{input type="number" class="col-xs-5 count-input" value=thirdSliceCount min="0" max="30"}}
           </div>
           <div class="row form-group">
-            <label class="col-xs-7">Nombre de titres à masteriser entre 12' et 16' </label>
+            <label class="col-xs-7">Nombre de titres à masteriser de plus de 12' </label>
             {{input type="number" class="col-xs-5 count-input" value=fourthSliceCount min="0" max="30"}}
-          </div>
-          <div class="row form-group">
-            <div class="col-xs-4"><label>Type de mastering </label></div>
-            <div class="col-xs-8">
-              <label class="radio-inline" data-toggle="tooltip" data-placement="bottom" title="Dans le cas d'un mastering par titre, nous vous livrons les fichiers .wav (16bits, 44.1 kHz) sur un serveur (ou un CD) et vous devrez les assembler sur un CD si besoin.">
-                <input type="radio" name="masteringType" value="title"> Mastering par titre 
-              </label>        
-                <label class="radio-inline" data-toggle="tooltip" data-placement="bottom" title="Dans le cas d'un mastering CD, vous repartez avec un CD master, un CD safety et/ou une image DDP. Ce travail est plus cher car il comporte le montage, les inscriptions de code ISRC et informations CD-TEXT.">        
-                <input type="radio" name="masteringType" value="cd"> Mastering CD      
-              </label>        
-            </div>
           </div>
           <div class="checkbox">
             <label>
-              {{input type="checkbox" checkedBinding='stems'}} Morceaux fournis sous forme de <span title="C'est à dire en plusieurs fichiers">stems</span>
+              {{input type="checkbox" checkedBinding='ddp'}} Master DDP (+ 30 &#8364; + 4 &#8364; par titre)
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              {{input type="checkbox" checkedBinding='stems'}} Mastering par stems (autres que PBO + a cappella) (+ 20 %)
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              {{input type="checkbox" checkedBinding='alternatives'}} Version alternative (PBO, vocal up) (+ 10%)
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              {{input type="checkbox" checkedBinding='presentiel'}} Mastering présentiel (+15%)
+            </label>
+          </div>
+            <div class="checkbox">
+            <label>
+              {{input type="checkbox" checkedBinding='shipping'}} Envoi postal (+ 10 &#8364;)
             </label>
           </div>
         </form>
@@ -49,6 +58,10 @@
         <tr class="hidden">
         <td>Livraison par téléchargement sur serveur sécurisé</td>
         <td>0 &#8364;</td>
+        <tr>
+        <tr {{bind-attr class="shipping::hidden"}}>
+        <td>Envoi postal et manutention</span></td>
+        <td>{{shippingPrice}} &#8364;</td>
         <tr>
         <tr>
         <td>Total HT</td>
