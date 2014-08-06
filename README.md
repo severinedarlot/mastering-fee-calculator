@@ -1,5 +1,8 @@
 # Mastering-fee-calculator
 
+This small web application helps users to estimate the price of a mastering with "Little Big Music" recording studio.
+It is deployed here: http://littlebigmusic.eu/
+
 This README outlines the details of collaborating on this Ember application.
 
 ## Installation
