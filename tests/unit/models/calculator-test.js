@@ -19,6 +19,13 @@ test('When nothing, fee prices are zero', function () {
 	equal(calculator.get('ttcPrice'), 0);
 });
 
+test('When nothing but ddp, fee prices are zero too', function () {
+  var calculator = calculatorFactory({ddp: true});
+  equal(calculator.get('titlesPrice'), 0);
+  equal(calculator.get('htPrice'), 0);
+  equal(calculator.get('ttcPrice'), 0);
+});
+
 test('titlesPrice should return 48 when there is 1 song of first slice', function () {
 	var calculator = calculatorFactory({
     firstSliceCount: 1, ddp: false

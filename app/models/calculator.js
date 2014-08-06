@@ -46,7 +46,7 @@ var Calculator = Ember.Object.extend({
   }.property('shipping'),
 
   ddpPrice: function () {
-    if (this.get('ddp')) {
+    if (this.get('ddp') && this.get('totalCount') > 0) {
       return this.get('ddpPackage') + this.get('totalCount') * this.get('ddpByTitle');
     } else {
       return 0;

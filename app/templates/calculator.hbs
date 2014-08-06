@@ -22,6 +22,7 @@
             <label>
               {{input type="checkbox" checkedBinding='ddp'}} Master DDP ({{ddpPackage}} &#8364; + {{ddpByTitle}} &#8364; par titre)
             </label>
+            <div {{bind-attr class="ddp:hidden :alert :alert-warning"}} role="alert">Dans ce cas, nous vous livrons les fichiers .wav (16bits, 44.1 kHz) sur un serveur (ou un CD) et vous devrez les assembler sur un CD si besoin</div>
           </div>
           <div class="checkbox">
             <label>
@@ -57,7 +58,7 @@
         <tr>
         <tr {{bind-attr class="ddp::hidden"}}>
         <td>Création image DDP</td>
-        <td>{{ddpPrice}} &#8364;</td>
+        <td>{{ddpPrice}} &#8364; </td>
         <tr>
         <tr {{bind-attr class="ddp:hidden"}}>
         <td>Envoi de fichiers WAV</td>
