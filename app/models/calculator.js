@@ -1,12 +1,12 @@
 import Ember from 'ember';
 
 var Calculator = Ember.Object.extend({
-  basicPrice: 48,
-  epPrice: 270,
-  lpPrice: 520,
+  basicPrice: 56,
+  epPrice: 312, // 52€ per title
+  lpPrice: 598, // 46€ per title
   tva: 20,
-  ddpPackage: 30,
-  ddpByTitle: 4,
+  ddpPackage: 35,
+  ddpByTitle: 5,
 
   firstSliceCount: 0,
   secondSliceCount: 0,
@@ -66,21 +66,21 @@ var Calculator = Ember.Object.extend({
       this.secondExtra(songPrice) + this.thirdExtra(songPrice) + this.fourthExtra(songPrice);
   }.property('totalCount'),
 
-  presentielPrice: function () {
-    if(this.get('presentiel')) {
-      return Math.ceil(this.get('beforePresentiel') * 15 / 100);
+  onlinePrice: function () {
+    if(this.get('online')) {
+      return -Math.ceil(this.get('beforeOnline') * 15 / 100);
     } else {
       return 0;
     }
-  }.property('presentiel', 'beforePresentiel'),
+  }.property('online', 'beforeOnline'),
 
-  beforePresentiel:  function () {
+  beforeOnline:  function () {
     return this.get('titlesPrice') + this.get('stemsTotalPrice') + this.get('ddpPrice') + this.get('alternativePrice');
   }.property('titlesPrice', 'stemsTotalPrice', 'ddpPrice', 'alternativePrice'),
 
   htPrice: function () {
-    return this.get('beforePresentiel') + this.get('shippingPrice') + this.get('presentielPrice');
-  }.property('beforePresentiel', 'shippingPrice', 'presentielPrice'),
+    return this.get('beforeOnline') + this.get('shippingPrice') + this.get('onlinePrice');
+  }.property('beforeOnline', 'shippingPrice', 'onlinePrice'),
 
   ttcPrice: function () {
     return this.get('htPrice') + this.get('htPrice') * this.get('tva') / 100;

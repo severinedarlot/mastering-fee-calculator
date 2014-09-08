@@ -26,7 +26,7 @@
           </div>
           <div class="checkbox">
             <label>
-              {{input type="checkbox" checkedBinding='stems'}} Mastering par stems (autres que PBO + a cappella) (+ 20 %)
+              {{input type="checkbox" checkedBinding='stems'}} Mastering par stems (autres que PBO + a cappella) (+ 20%)
             </label>
           </div>
           <div class="checkbox">
@@ -36,7 +36,7 @@
           </div>
           <div class="checkbox">
             <label>
-              {{input type="checkbox" checkedBinding='presentiel'}} Mastering présentiel (+ 15%)
+              {{input type="checkbox" checkedBinding='online'}} Mastering online (- 15%)
             </label>
           </div>
             <div class="checkbox">
@@ -68,9 +68,9 @@
         <td>Version alternative</td>
         <td>{{alternativePrice}} &#8364;</td>
         <tr>
-        <tr {{bind-attr class="presentiel::hidden"}}>
-        <td>Mastering presentiel</td>
-        <td>{{presentielPrice}} &#8364;</td>
+        <tr {{bind-attr class="online::hidden"}}>
+        <td>Mastering en ligne</td>
+        <td>{{onlinePrice}} &#8364;</td>
         <tr>
         <tr {{bind-attr class="shipping::hidden"}}>
         <td>Envoi postal et manutention</span></td>
