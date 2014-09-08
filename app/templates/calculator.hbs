@@ -22,7 +22,7 @@
             <label>
               {{input type="checkbox" checkedBinding='ddp'}} Master DDP ({{ddpPackage}} &#8364; + {{ddpByTitle}} &#8364; par titre)
             </label>
-            <div {{bind-attr class="ddp:hidden :alert :alert-warning"}} role="alert">Dans ce cas, nous vous livrons les fichiers .wav (16bits, 44.1 kHz) sur un serveur (ou un CD) et vous devrez les assembler sur un CD si besoin</div>
+            <div {{bind-attr class="ddp:hidden :alert :alert-warning"}} role="alert">Dans ce cas, nous vous livrons les fichiers .wav (16bits, 44.1 kHz) sur un serveur (ou un CD) et vous devrez les assembler sur un CD si besoin. Les encodages ISRC, EAN ainsi que CDTEXT vous incombent. Notez également qu'une image DDP est plus fiable qu'un CD-R pour créer un glass-master.</div>
           </div>
           <div class="checkbox">
             <label>
@@ -38,6 +38,7 @@
             <label>
               {{input type="checkbox" checkedBinding='online'}} Mastering online (- 15%)
             </label>
+            <div {{bind-attr class="online::hidden :alert :alert-warning"}} role="alert">Dans ce cas, vous n'assistez pas à la scéance de mastering. Nous communiquerons par mail ou par téléphone.</div>
           </div>
             <div class="checkbox">
             <label>
