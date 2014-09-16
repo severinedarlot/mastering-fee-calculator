@@ -15,6 +15,7 @@ This README outlines the details of collaborating on this Ember application.
 
 * `ember server`
 * Visit your app at http://localhost:4200.
+* Visit your tests at http://localhost:4200/tests.
 
 ## Running Tests
 

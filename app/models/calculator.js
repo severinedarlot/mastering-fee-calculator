@@ -1,9 +1,8 @@
 import Ember from 'ember';
 
 var Calculator = Ember.Object.extend({
-  basicPrice: 56,
-  epPrice: 312, // 52€ per title
-  lpPrice: 598, // 46€ per title
+  basicPrice: 63, 
+  miniPrice: 40,  
   tva: 20,
   ddpPackage: 35,
   ddpByTitle: 5,
@@ -54,14 +53,11 @@ var Calculator = Ember.Object.extend({
   }.property('ddp', 'totalCount'),
 
   titlesPrice: function () {
-    var songPrice = 0;
-    if (this.get('totalCount') < 6) {
-      songPrice = this.get('basicPrice');
-    } else if ( 6 <= this.get('totalCount') && this.get('totalCount') < 13 ) {
-      songPrice = this.get('epPrice') / 6;
-    } else {
-      songPrice = this.get('lpPrice') / 13;
+    var songPrice = this.get('basicPrice') - this.get('totalCount') + 1;
+    if (songPrice < this.get('miniPrice')) {
+      songPrice = this.get('miniPrice');
     }
+    console.log('--------', songPrice);
     return songPrice * this.get('totalCount') + 
       this.secondExtra(songPrice) + this.thirdExtra(songPrice) + this.fourthExtra(songPrice);
   }.property('totalCount'),
@@ -87,15 +83,15 @@ var Calculator = Ember.Object.extend({
   }.property('htPrice'),
 
   secondExtra: function (songPrice) {
-    return 1/2 * songPrice * parseInt(this.get('secondSliceCount'));
+    return 1/4 * songPrice * parseInt(this.get('secondSliceCount'));
   },
 
   thirdExtra: function (songPrice) {
-    return 2/2 * songPrice * parseInt(this.get('thirdSliceCount'));
+    return 1/2 * songPrice * parseInt(this.get('thirdSliceCount'));
   },
 
   fourthExtra: function (songPrice) {
-    return 3/2 * songPrice * parseInt(this.get('fourthSliceCount'));
+    return 3/4 * songPrice * parseInt(this.get('fourthSliceCount'));
   }
 
 });
